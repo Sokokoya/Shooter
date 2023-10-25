@@ -2010,11 +2010,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a83c22b32dead749948ae2b29252a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialBullet: {fileID: 8234911795625319155, guid: 8222d68ed3e9a24469504ccc2305ebf4, type: 3}
   bullet: {fileID: 6470470209835675063, guid: a56b1226008b30644bcf65814b9bb2e6, type: 3}
   parent: {fileID: 234670887}
   limitL: {fileID: 1923840854}
   limitR: {fileID: 1899504735}
   speed: 0.02
+  powerUpActif: 0
+  powerUpSince: 0
 --- !u!60 &983346838
 PolygonCollider2D:
   m_ObjectHideFlags: 0
