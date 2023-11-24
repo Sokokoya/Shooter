@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Rigidbody2D monRigidBody;
+    public Rigidbody2D bulletRigidbody;
     public GameObject drop;
     public float speed;
 
     public ScoreManager score;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        monRigidBody.velocity = Vector3.up*speed;
+        bulletRigidbody.velocity = Vector3.up*speed;
 
         score = FindObjectOfType<ScoreManager>();
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        // If the bullet encounters the special enemy, a drop item is instantiated
         if (collision.gameObject.CompareTag("Speciel_enemy"))
         {
             Instantiate(drop, collision.gameObject.transform.position, Quaternion.identity);
         }
-       
-        
-        //AjoutScore(Score);
+    
+        // For each kill, the player's score increases
+        score.scoreTir++;
 
-        score.ScoreTir++;
-        Debug.Log("score tir prend 1 :" + score.ScoreTir);
-       
-        
+       // The enemy and the bullet get destroyed       
         Destroy(collision.gameObject);
         Destroy(gameObject);
     }

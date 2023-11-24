@@ -5,27 +5,23 @@ using UnityEngine;
 public class Drop : MonoBehaviour
 {
 
-    public GameObject Parent;
-    public MovementEtTir Tir;
+    public GameObject parent;
+    public MovementEtTir shoot;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Tir = FindObjectOfType<MovementEtTir>();
+        shoot = FindObjectOfType<MovementEtTir>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // If the dropped item collides with the player, the power up activates and the item is destroyed
         if (collision.gameObject.CompareTag("Player"))
         {
-            Tir.powerUpActif = true;
-            Debug.Log("POWER UP ACTIF");
+            shoot.powerUpActive = true;
             Destroy(gameObject);
         }       
     }

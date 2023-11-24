@@ -10,15 +10,10 @@ public class MovementEtTir : MonoBehaviour
     public Transform limitL;
     public Transform limitR;
 
-    public float speed = 0.2f;
-    public bool powerUpActif = false;
+    public float speed = 0.05f;
+    public bool powerUpActive = false;
     private float powerUpSince = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -34,31 +29,29 @@ public class MovementEtTir : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         { 
-            if (!powerUpActif)
+            if (!powerUpActive)
             {
                 Instantiate(bullet, parent.position, parent.rotation);
             }
-            if (powerUpActif)
+            if (powerUpActive)
             {
                 Instantiate(specialBullet, parent.position, parent.rotation);
             }
         }
 
 
-        // timer du powerup s'il est actif
-        if (powerUpActif)
+        // Power up timer if it is active
+        if (powerUpActive)
         {
             powerUpSince++;
-            Debug.Log(powerUpSince);
         }
 
 
-        // si le power up est actif depuis 2000 frames, on l'enleve
+        // If the power up has been active for more than 2000 frames, it gets deactivated
         if (powerUpSince >= 2000f)
         {
-            powerUpActif = false;
+            powerUpActive = false;
             powerUpSince = 0.0f;
-            Debug.Log("POWER UP DESACTIVE");
         }
 
 

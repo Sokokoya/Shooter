@@ -162,9 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9e90b22d5293a4894afc94eb6acbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monRigidBody: {fileID: 6863447708074395207}
+  bulletRigidbody: {fileID: 6863447708074395207}
   drop: {fileID: 832751720752499582, guid: 995c552da69ebe8439664e6d19982ee0, type: 3}
   speed: 12
+  score: {fileID: 0}
 --- !u!96 &5144115588052714144
 TrailRenderer:
   serializedVersion: 3

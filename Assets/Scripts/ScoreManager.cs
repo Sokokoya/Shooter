@@ -6,39 +6,29 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
 
-
-    // variable player
-    public GameObject Player;
-    public int ScoreTir;
-    public int ScoreDrop;
+    public GameObject player;
+    public int scoreTir;
+    public int scoreDrop;
 
     public TextMeshProUGUI texteScoreTir;
     public TextMeshProUGUI texteScoreDrop;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        texteScoreTir.text = "Score : " + ScoreTir;
-        texteScoreDrop.text = "Drop : " + ScoreDrop;
+        texteScoreTir.text = "Score : " + scoreTir;
+        texteScoreDrop.text = "Drop : " + scoreDrop;
     }
 
-    // quand le drop rentre en trigger avec le player
+
+    // When the dropped item collides with the player, its score increases
     private void OnTriggerEnter2D(Collider2D collision)
     {        
         if (collision.gameObject.CompareTag("Drop"))
         {
-            ScoreDrop++;
-            Debug.Log("score drop prend 1:" + ScoreDrop);
-        }
-        
+            scoreDrop++;
+        }       
     }
 
 }
